@@ -1,0 +1,91 @@
+.nav-desktop{
+    display: flex;
+    justify-content: space-around;
+    gap: 220px;
+    align-items: center;
+    padding: 10px;
+    /* margin: 5px; */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+
+    /* background-color: red; */
+    /* border-radius: 10px; */
+}
+
+.nav-desktop .logo {
+    /* background-color: green; */
+
+    font-weight: 800;
+    font-size: 22px;
+
+}
+
+.nav-desktop ul {
+    display: flex;
+    line-height: 40px;
+    /* margin-right: 1rem; */
+}
+
+.nav-desktop ul li {
+    list-style-type: none;
+}
+
+.nav-desktop ul li a {
+    display: block;
+    margin: 0 2px;
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+
+}
+
+.nav-icon-span {
+    font-size: 20px;
+}
+
+.nav-items {
+    line-height: 40px;
+    /* margin-right: 1rem; */
+}
+
+.nav-desktop ul .nav-links:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width 0.7s ease, background-color 0.5s ease;
+}
+
+.nav-desktop ul .nav-links:hover:after {
+    width: 100%;
+    background: #1976d2;
+}
+
+.nav-icon:not(:last-child) {
+    font-size: 29px;
+}
+
+@media screen and (max-width: 900px) {
+
+
+    .nav-desktop ul {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: block;
+    }
+}
+
+
+@media (min-width: 900px) and (max-width:1096px) {
+    .nav-desktop {
+        gap: 10px;
+        justify-content: space-around;
+    }
+}

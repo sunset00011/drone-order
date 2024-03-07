@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+  namespace: argocd
+data:
+  service.webhook.jenkins: |
+    url: http://54.238.84.183:32000
+    basicAuth:
+      username: argocd
+      password: admin
+  service.webhook.test: |
+    url: http://54.238.84.183:32000
+    basicAuth:
+      username: argocd
+      password: admin
+  template.app-sync-succeeded: |
+    webhook:
+      jenkins:
+        method: GET
+        path: /job/test-webhook/build?token=test
+      test:
+        method: GET
+        path: /job/test-webhook-2/build?token=test2
+  trigger.on-sync-succeeded: |
+    - description: Application syncing has succeeded
+      when: app.status.operationState.phase in ['Succeeded']
+      send: [app-sync-succeeded]
+
